@@ -407,8 +407,8 @@ describe('Router', () => {
                 '/path/a/b/to': {
                     x: 'a/b/to'
                 },
-                '/path/': {},
-                '/path': {}
+                '/path/': { x: '' },
+                '/path': { x: undefined }
             },
             '/path/{p1}/{p2?}': {
                 '/path/a/c/d': false,
@@ -418,10 +418,12 @@ describe('Router', () => {
                     p2: 'b'
                 },
                 '/path/a': {
-                    p1: 'a'
+                    p1: 'a',
+                    p2: undefined
                 },
                 '/path/a/': {
-                    p1: 'a'
+                    p1: 'a',
+                    p2: ''
                 }
             },
             '/path/{p1}/{p2?}|false': {
@@ -431,10 +433,12 @@ describe('Router', () => {
                     p2: 'c'
                 },
                 '/path/a': {
-                    p1: 'a'
+                    p1: 'a',
+                    p2: undefined
                 },
                 '/path/a/': {
-                    p1: 'a'
+                    p1: 'a',
+                    p2: ''
                 }
             },
             '/mixedCase/|false': {
@@ -481,7 +485,7 @@ describe('Router', () => {
                 '/abc': {
                     b: 'b'
                 },
-                '/ac': {},
+                '/ac': { b: '' },
                 '/abC': false,
                 '/Ac': false
             },
@@ -489,7 +493,7 @@ describe('Router', () => {
                 '/abC': {
                     b: 'b'
                 },
-                '/Ac': {}
+                '/Ac': { b: '' }
             },
             '/%0A': {
                 '/%0A': true,
@@ -551,6 +555,7 @@ describe('Router', () => {
                 },
                 '/abde': {
                     a: 'a',
+                    c: '',
                     e: 'e'
                 },
                 '/abxyzde': {
