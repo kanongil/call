@@ -377,10 +377,10 @@ describe('Router', () => {
                 '/path/to/': true,
                 '/Path/to/': false
             },
-            '/path/{param*2}/to': {
-                '/a/b/c/d': false,
-                '/path/a/b/to': {
-                    param: 'a/b'
+            '/path/{param*3}/to': {
+                '/a/b/c/d/e': false,
+                '/path/a/b/c/to': {
+                    param: 'a/b/c'
                 }
             },
             '/path/{x*}': {
