@@ -433,13 +433,17 @@ describe('Router', () => {
             '/{p*}': {
                 '/path/': {
                     p: 'path/'
-                }
+                },
+                '/a%2fb': false
             },
             '/{p}': {
                 '/path': {
                     p: 'path'
                 },
-                '/': false
+                '/': false,
+                '/a%2fb': {
+                    p: 'a/b'
+                }
             },
             '/{p}/': {
                 '/path/': {
@@ -453,7 +457,10 @@ describe('Router', () => {
                 '/path': {
                     p: 'path'
                 },
-                '/': true
+                '/': true,
+                '/a%2fb': {
+                    p: 'a/b'
+                }
             },
             '/{a}/b/{p*}': {
                 '/a/b/path/': {
@@ -553,6 +560,9 @@ describe('Router', () => {
             },
             '/a/{p}/b': {
                 '/a/': false
+            },
+            '/{p*2}': {
+                '/a/b%2fc': false
             }
         };
 
