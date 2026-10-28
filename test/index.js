@@ -563,6 +563,16 @@ describe('Router', () => {
             },
             '/{p*2}': {
                 '/a/b%2fc': false
+            },
+            '/files/{p*}': {
+                '/files/a%2f..%2fsecret': false
+            },
+            '/{a}.{b}/{c*}': {
+                '/x.y%2fz/q': {
+                    a: 'x',
+                    b: 'y/z',
+                    c: 'q'
+                }
             }
         };
 
